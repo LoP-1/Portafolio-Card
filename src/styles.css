@@ -9,12 +9,24 @@
 }
 
 :root {
+  --color-retro-50:  #fbf5ef;
+  --color-retro-100: #f2d3ab;
+  --color-retro-200: #c69fa5; 
+  --color-retro-300: #8b6d9c; 
+  --color-retro-400: #494d7e; 
+  --color-retro-500: #272744; 
+
+  --color-humo:      #f5f5f5; 
+  --color-tinta:     #1a1a1a; 
   --font-serif: "Minecraft", ui-serif, Georgia, serif;
 }
 
 @layer base {
   body {
-    font-family: var(--font-serif);
+    background-color: var(--color-retro-50); 
+    color: var(--color-tinta);
+    
+    /* Ajustes pixel-art */
     image-rendering: pixelated; 
     -webkit-font-smoothing: none;
     -moz-osx-font-smoothing: grayscale;
