@@ -16,24 +16,25 @@
     <ul class="flex flex-col gap-5">
       
       <li>
-        <a routerLink="/" 
-           routerLinkActive="!bg-retro-50 !text-retro-500 pl-10 translate-x-[4px] translate-y-[4px] !shadow-none"
-           class="block border-[3px] border-l-0 border-retro-500 bg-retro-400 px-6 py-3 text-humo transition-all duration-200 rounded-r-sm shadow-[4px_4px_0px_0px_var(--color-retro-500)] hover:bg-retro-100 hover:text-retro-500 hover:shadow-none hover:translate-x-[4px] hover:translate-y-[4px]">
-           Información
-        </a>
-      </li>
+      <a routerLink="/" 
+         routerLinkActive="!bg-retro-100 !text-retro-500 pl-10 translate-x-[4px] translate-y-[4px] !shadow-none"
+         [routerLinkActiveOptions]="{ exact: true }"
+         class="block border-[3px] border-l-0 border-retro-500 bg-retro-400 px-6 py-3 text-humo transition-all duration-200 rounded-r-sm shadow-[4px_4px_0px_0px_var(--color-retro-500)] hover:bg-retro-100 hover:text-retro-500 hover:shadow-none hover:translate-x-[4px] hover:translate-y-[4px]">
+         Información
+      </a>
+    </li>
 
       <li>
-        <a routerLink="/habilidades" 
-           routerLinkActive="!bg-retro-50 !text-retro-500 pl-10 translate-x-[4px] translate-y-[4px] !shadow-none"
-           class="block border-[3px] border-l-0 border-retro-500 bg-retro-300 px-6 py-3 text-humo transition-all duration-200 rounded-r-sm shadow-[4px_4px_0px_0px_var(--color-retro-500)] hover:bg-retro-100 hover:text-retro-500 hover:shadow-none hover:translate-x-[4px] hover:translate-y-[4px]">
-           Experiencia
-        </a>
-      </li>
+      <a routerLink="/experiencia" 
+         routerLinkActive="!bg-retro-100 !text-retro-500 pl-10 translate-x-[4px] translate-y-[4px] !shadow-none"
+         class="block border-[3px] border-l-0 border-retro-500 bg-retro-300 px-6 py-3 text-humo transition-all duration-200 rounded-r-sm shadow-[4px_4px_0px_0px_var(--color-retro-500)] hover:bg-retro-100 hover:text-retro-500 hover:shadow-none hover:translate-x-[4px] hover:translate-y-[4px]">
+         Experiencia
+      </a>
+    </li>
 
       <li>
         <a routerLink="/proyectos" 
-           routerLinkActive="!bg-retro-50 !text-retro-500 pl-10 translate-x-[4px] translate-y-[4px] !shadow-none"
+           routerLinkActive="!bg-retro-100 !text-retro-500 pl-10 translate-x-[4px] translate-y-[4px] !shadow-none"
            class="block border-[3px] border-l-0 border-retro-500 bg-retro-400 px-6 py-3 text-retro-50 transition-all duration-200 rounded-r-sm shadow-[4px_4px_0px_0px_var(--color-retro-500)] hover:bg-retro-100 hover:text-retro-500 hover:shadow-none hover:translate-x-[4px] hover:translate-y-[4px]">
            Proyectos
         </a>
@@ -41,7 +42,7 @@
 
       <li>
         <a routerLink="/contacto" 
-           routerLinkActive="!bg-retro-50 !text-retro-500 pl-10 translate-x-[4px] translate-y-[4px] !shadow-none"
+           routerLinkActive="!bg-retro-100 !text-retro-500 pl-10 translate-x-[4px] translate-y-[4px] !shadow-none"
            class="block border-[3px] border-l-0 border-retro-500 bg-retro-300 px-6 py-3 text-retro-50 transition-all duration-200 rounded-r-sm shadow-[4px_4px_0px_0px_var(--color-retro-500)] hover:bg-retro-100 hover:text-retro-500 hover:shadow-none hover:translate-x-[4px] hover:translate-y-[4px]">
            Contacto
         </a>
