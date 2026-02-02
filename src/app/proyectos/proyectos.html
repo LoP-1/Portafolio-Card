@@ -1,1 +1,93 @@
-<p>proyectos works!</p>
+<div
+    class="grid grid-cols-1 md:grid-cols-12 border-4 border-retro-500 bg-retro-50 shadow-[8px_8px_0px_0px_var(--color-retro-500)] min-h-[500px] overflow-hidden relative">
+
+    <div
+        class="absolute inset-0 opacity-[0.02] pointer-events-none bg-[linear-gradient(var(--color-retro-50)_50%,transparent_50%)] bg-[length:100%_4px] z-20">
+    </div>
+
+    <div class="md:col-span-4 border-b-4 md:border-b-0 md:border-r-4 border-retro-500 flex flex-col bg-retro-300 z-10">
+        <div
+            class="p-3 bg-retro-400 text-retro-50 text-xs font-bold tracking-widest uppercase border-b-4 border-retro-500">
+            Lista Proyectos
+        </div>
+
+        <div class="flex-grow overflow-y-auto">
+            @for (project of projects; track project.id) {
+            <button (click)="select(project)" [class.bg-retro-200]="selectedProject().id === project.id"
+                [class.text-retro-500]="selectedProject().id === project.id"
+                class="w-full text-left p-4 border-b-2 border-retro-500 hover:bg-retro-200 transition-all group relative">
+
+                <div class="flex items-center gap-3">
+                    <span class="text-[10px]" [class.text-retro-500]="selectedProject().id !== project.id">►</span>
+                    <div>
+                        <p class="font-bold text-sm uppercase leading-tight">{{ project.title }}</p>
+                        <p class="text-[10px] opacity-70 italic">{{ project.type }}</p>
+                    </div>
+                </div>
+
+                <div *ngIf="selectedProject().id === project.id"
+                    class="absolute right-0 top-0 bottom-0 w-1 bg-retro-500"></div>
+            </button>
+            }
+        </div>
+    </div>
+
+    <div class="md:col-span-8 p-8 flex flex-col bg-gradient-to-br from-retro-300 to-retro-400 z-10 relative">
+
+        <div class="mb-6 relative">
+            <div class="flex justify-between items-start border-b-4 border-retro-500 pb-4">
+                <div>
+                    <span class="text-[10px] font-bold text-retro-100 uppercase tracking-widest">Nombre Proyecto</span>
+                    <h2 class="text-3xl font-bold uppercase text-retro-50">{{ selectedProject().title }}</h2>
+                </div>
+                <div
+                    class="bg-retro-500 text-retro-50 px-3 py-1 text-[10px] font-bold border-2 border-retro-50 shadow-[3px_3px_0px_0px_var(--color-retro-500)]">
+                    ID: 00{{ selectedProject().id }}
+                </div>
+            </div>
+        </div>
+
+        <div class="mb-6 border-4 border-retro-500 overflow-hidden shadow-[4px_4px_0px_0px_var(--color-retro-500)]">
+            <img [src]="selectedProject().imageUrl" [alt]="selectedProject().title" class="w-full h-48 object-cover">
+        </div>
+
+        <div class="flex-grow space-y-6">
+            <div class="bg-retro-100 border-2 border-dashed border-retro-500 p-4">
+                <p class="text-sm leading-relaxed">{{ selectedProject().description }}</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 bg-retr">
+                <div>
+                    <h4 class="text-xs font-bold mb-3 border-l-4 border-retro-100 pl-2 uppercase text-retro-100">Logros Técnicos</h4>
+                    <ul class="space-y-1">
+                        @for (feat of selectedProject().features; track feat) {
+                        <li class="text-[11px] flex items-center gap-2 text-retro-50">
+                            <span class="text-retro-50">★</span> {{ feat }}
+                        </li>
+                        }
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-xs font-bold mb-3 border-l-4 border-retro-50 pl-2 uppercase text-retro-100">Tecnologías</h4>
+                    <div class="flex flex-wrap gap-2">
+                        @for (t of selectedProject().tech; track t) {
+                        <span
+                            class="text-[9px] font-bold px-2 py-0.5 border border-retro-500 bg-retro-50 shadow-[2px_2px_0px_0px_var(--color-retro-500)]">
+                            {{ t }}
+                        </span>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-auto pt-6 border-t-2 border-retro-200 flex justify-between items-center">
+            <a [href]="selectedProject().repositoryUrl" target="_blank"
+                class="bg-retro-500 text-retro-50 px-6 py-2 text-xs font-bold border-2 border-retro-50 shadow-[4px_4px_0px_0px_var(--color-retro-500)] hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all">
+                VER EN GITHUB
+            </a>
+        </div>
+
+    </div>
+</div>
