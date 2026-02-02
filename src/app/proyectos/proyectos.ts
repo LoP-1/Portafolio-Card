@@ -12,6 +12,7 @@ export class Proyectos {
     {
       id: 1,
       title: 'Gestión Farmacéutica',
+      mainTech: "spring",
       type: 'Backend System',
       description: 'Diseño e implementación de backend para control de inventario y ventas enfocado en integridad de datos.',
       features: ['Control de stock', 'Hardening de VPS', 'Nginx Proxy', 'SEO Técnico'],
@@ -23,6 +24,7 @@ export class Proyectos {
       id: 2,
       title: 'Sistemas Críticos DREJ',
       type: 'Fullstack App',
+      mainTech: "angular",
       description: 'Mantenimiento y optimización de sistemas de Gestión Documental y Planillas de la Dirección de Educación.',
       features: ['Optimización de procesos', 'SSL Config', 'VPS Management'],
       tech: ['Spring Boot', 'Angular', 'Linux'],
@@ -33,6 +35,7 @@ export class Proyectos {
       id: 3,
       title: 'Portal de Cesantes',
       type: 'Web Redesign',
+      mainTech: "laravel",
       description: 'Modernización de interfaz y mejora de experiencia de usuario (UX) para el portal de consultas institucional.',
       features: ['Rediseño UI/UX', 'Optimización de consultas'],
       tech: ['Laravel', 'MySQL', 'Responsive Design'],
