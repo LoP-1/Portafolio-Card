@@ -1,24 +1,27 @@
 <div
     class="grid grid-cols-1 md:grid-cols-12 border-4 border-retro-500 bg-retro-50 shadow-[8px_8px_0px_0px_var(--color-retro-500)] min-h-[500px] overflow-hidden relative">
 
-    <div
-        class="absolute inset-0 opacity-[0.02] pointer-events-none bg-[linear-gradient(var(--color-retro-50)_50%,transparent_50%)] bg-[length:100%_4px] z-20">
-    </div>
-
     <div class="md:col-span-4 border-b-4 md:border-b-0 md:border-r-4 border-retro-500 flex flex-col bg-retro-300 z-10">
+
         <div
-            class="p-3 bg-retro-400 text-retro-50 text-xs font-bold tracking-widest uppercase border-b-4 border-retro-500">
-            Lista Proyectos
+            class="p-3 bg-retro-400 text-retro-50 text-xs font-bold tracking-widest uppercase border-b-4 border-retro-500 flex justify-between items-center">
+            <span>Lista Proyectos</span>
+
+            <button (click)="toggleSort()"
+                class="flex items-center gap-1 hover:text-retro-200 transition-colors cursor-pointer group">
+                <span class="text-[10px] text-retro-100 group-hover:text-retro-50">
+                    {{ sortOrder() === 'asc' ? 'RECIENTE ▲' : 'ANTIGUO ▼' }}
+                </span>
+            </button>
         </div>
 
         <div class="flex-grow overflow-y-auto">
-            @for (project of projects; track project.id) {
+            @for (project of sortedProjects(); track project.id) {
             <button (click)="select(project)" [class.bg-retro-100]="selectedProject().id === project.id"
                 [class.text-retro-500]="selectedProject().id === project.id"
                 class="w-full text-left p-4 border-b-2 border-retro-500 hover:bg-retro-100/50 transition-all group relative overflow-hidden active:translate-y-[2px] active:border-b-0">
 
                 <div class="flex items-center justify-between w-full relative z-10">
-
                     <div class="flex items-center gap-3">
                         <span class="text-[10px] text-retro-500">►</span>
                         <div>
@@ -31,16 +34,15 @@
 
                     <div class="flex items-center gap-2 opacity-60 group-hover:opacity-100 transition-opacity"
                         [class.opacity-100]="selectedProject().id === project.id">
-
                         @for (icon of project.mainTechs; track icon) {
                         <i class="devicon-{{ icon }}-plain text-3xl text-retro-500"></i>
                         }
                     </div>
-
                 </div>
 
                 <div *ngIf="selectedProject().id === project.id"
-     class="absolute left-0 top-0 bottom-0 w-1 bg-retro-500"> </div>
+                    class="absolute left-0 top-0 bottom-0 w-1 bg-retro-500">
+                </div>
             </button>
             }
         </div>
@@ -61,9 +63,15 @@
             </div>
         </div>
 
-        <div class="mb-6 border-4 border-retro-500 overflow-hidden shadow-[4px_4px_0px_0px_var(--color-retro-500)]">
-            <img [src]="selectedProject().imageUrl" [alt]="selectedProject().title" class="w-full h-48 object-cover">
-        </div>
+        <div (click)="openModal()" 
+     class="mb-6 border-4 border-retro-500 overflow-hidden shadow-[4px_4px_0px_0px_var(--color-retro-500)] cursor-zoom-in group relative">
+    <div class="absolute inset-0 bg-retro-500/10 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+        <span class="bg-retro-500 text-retro-50 px-2 py-1 text-[10px] font-bold border-2 border-retro-50">VIEW_HD</span>
+    </div>
+    <img [src]="selectedProject().imageUrl" 
+         [alt]="selectedProject().title" 
+         class="w-full h-auto">
+</div>
 
         <div class="flex-grow space-y-6">
             <div class="bg-retro-100 border-2 border-dashed border-retro-500 p-4">
@@ -105,5 +113,30 @@
             </a>
         </div>
 
+    </div>
+</div>
+
+
+<div *ngIf="isModalOpen()" 
+     class="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-12">
+    
+    <div (click)="closeModal()" class="absolute inset-0 bg-retro-500/90 backdrop-blur-sm"></div>
+
+    <div class="relative z-10 max-w-6xl w-full flex flex-col items-center">
+        
+        <button (click)="closeModal()" 
+                class="self-end mb-4 bg-retro-400 text-retro-50 px-4 py-2 border-4 border-retro-500 shadow-[4px_4px_0px_0px_var(--color-retro-500)] font-bold hover:bg-retro-100 hover:text-retro-500 active:translate-y-1 active:shadow-none transition-all">
+            [ X ] CERRAR_VISOR
+        </button>
+
+        <div class="border-8 border-retro-500 bg-retro-50 shadow-[12px_12px_0px_0px_rgba(0,0,0,0.5)] overflow-hidden max-h-[80vh] flex items-center justify-center">
+            <img [src]="selectedProject().imageUrl" 
+                 [alt]="selectedProject().title" 
+                 class="max-w-full max-h-full object-contain">
+        </div>
+
+        <div class="mt-4 bg-retro-500 text-retro-50 px-6 py-2 border-2 border-retro-50 font-bold uppercase tracking-widest">
+            {{ selectedProject().title }} - Captura HD
+        </div>
     </div>
 </div>

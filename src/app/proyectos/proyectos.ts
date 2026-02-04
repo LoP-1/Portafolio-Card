@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, computed, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -8,6 +8,20 @@ import { CommonModule } from '@angular/common';
   templateUrl: './proyectos.html',
 })
 export class Proyectos {
+
+isModalOpen = signal(false); 
+
+  openModal() {
+    this.isModalOpen.set(true);
+  }
+
+  closeModal() {
+    this.isModalOpen.set(false);
+  }
+
+
+  sortOrder = signal<'asc' | 'desc'>('asc');
+
   projects = [
     {
       id: 1,
@@ -28,8 +42,8 @@ export class Proyectos {
       description: 'Herramienta web ligera para la administración y organización de archivos directamente en el servidor.',
       features: ['CRUD de archivos en el sistema local', 'Buscador de archivos por metadatos', 'Optimización de lectura en disco'],
       tech: ['JavaScript', 'CSS', 'Linux'],
-      repositoryUrl: 'https://github.com/LoP-1/Boleteria-DREJ',
-      imageUrl: '/assets/images/projects/gestor.png'
+      repositoryUrl: 'https://github.com/LoP-1/sistema-almacenamiento-servidor-js',
+      imageUrl: 'js.png'
     },
     {
       id: 3,
@@ -40,7 +54,7 @@ export class Proyectos {
       features: ['Generación dinámica de reportes', 'Seguridad basada en roles y tokens JWT', 'Dashboard interactivo con gráficas de gestión'],
       tech: ['Java', 'Spring Boot', 'Angular', 'Mysql', 'Linux'],
       repositoryUrl: 'https://github.com/LoP-1/Boleteria-DREJ',
-      imageUrl: '/assets/images/projects/drej-boleteria.png'
+      imageUrl: 'boletas.png'
     },
     {
       id: 4,
@@ -51,7 +65,7 @@ export class Proyectos {
       features: ['Migración de datos masivos mediante formateadores Python', 'Doble backend para alta disponibilidad', 'Interfaz responsiva optimizada para usuarios adultos'],
       tech: ['Laravel', 'Angular', 'Spring Boot', 'Python', 'MySQL', 'Linux'],
       repositoryUrl: 'https://github.com/LoP-1/Sistema-Boletas-DREJ',
-      imageUrl: '/assets/images/projects/drej-consulta.png'
+      imageUrl: 'boletas-cesantes.png'
     },
     {
       id: 5,
@@ -62,7 +76,7 @@ export class Proyectos {
       features: ['Lógica FIFO para rotación de productos farmacéuticos', 'Manejo de persistencia de datos complejos', 'Hardening de seguridad en VPS con firewall UFW'],
       tech: ['Java', 'Spring Boot', 'MySQL', 'Linux', 'UFW'],
       repositoryUrl: 'https://github.com/LoP-1/Botica_API',
-      imageUrl: '/assets/images/projects/farmaceutica.png'
+      imageUrl: 'Said.png'
     },
     {
       id: 6,
@@ -73,18 +87,18 @@ export class Proyectos {
       features: ['Compatibilidad con servidores CPanel mediante Laravel', 'Manejo de grandes volúmenes de documentos', 'Formateador de datos especializado en Python'],
       tech: ['Spring Boot', 'Laravel', 'Angular', 'Python', 'MySQL'],
       repositoryUrl: 'https://github.com/LoP-1/Gestion_de_Actas',
-      imageUrl: '/assets/images/projects/drej-actas.png'
+      imageUrl: 'foto.png'
     },
     {
       id: 7,
       title: 'CerebrexNode TakeControl',
       type: 'Modding',
       mainTechs: ["csharp"],
-      description: 'Modificación técnica para el videojuego Rimworld desarrollada con la librería Harmony.',
+      description: 'Modificación técnica para el videojuego Rimworld desarrollada con la librería Harmony. URL: https://steamcommunity.com/sharedfiles/filedetails/?id=3544273839',
       features: ['Inyección de código en tiempo de ejecución', 'Implementación de habilidades únicas para colonos', 'Soporte completo para múltiples idiomas'],
       tech: ['C#', 'Harmony Lib', 'XML'],
       repositoryUrl: 'https://github.com/LoP-1/CerebrexNode_TakeControll_Mod',
-      imageUrl: '/assets/images/projects/rimworld-mod.png'
+      imageUrl: 'mod.png'
     },
     {
       id: 8,
@@ -95,7 +109,7 @@ export class Proyectos {
       features: ['Almacenamiento persistente de coordenadas', 'API optimizada para mapas interactivos', 'Integridad de datos de usuario'],
       tech: ['Java', 'Spring Boot', 'MySQL', 'JSON'],
       repositoryUrl: 'https://github.com/LoP-1/SafeAlertAPI',
-      imageUrl: '/assets/images/projects/safealert.png'
+      imageUrl: 'Safe-Alert.png'
     },
     {
       id: 9,
@@ -106,13 +120,23 @@ export class Proyectos {
       features: ['Autenticación segura con JWT', 'CRUD completo de productos e ingredientes', 'Gestión de pedidos persistentes'],
       tech: ['Spring Boot', 'MySQL', 'HTML', 'CSS'],
       repositoryUrl: 'https://github.com/LoP-1/PizzaAPI-WEB',
-      imageUrl: '/assets/images/projects/pizza.png'
+      imageUrl: 'Index.png'
     }
   ];
+sortedProjects = computed(() => {
+    const list = [...this.projects];
+    return list.sort((a, b) => {
+      return this.sortOrder() === 'asc' ? a.id - b.id : b.id - a.id;
+    });
+  });
 
   selectedProject = signal(this.projects[0]);
 
   select(project: any) {
     this.selectedProject.set(project);
+  }
+
+  toggleSort() {
+    this.sortOrder.set(this.sortOrder() === 'asc' ? 'desc' : 'asc');
   }
 }
