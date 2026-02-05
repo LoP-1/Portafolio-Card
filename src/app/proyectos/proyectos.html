@@ -63,15 +63,15 @@
             </div>
         </div>
 
-        <div (click)="openModal()" 
-     class="mb-6 border-4 border-retro-500 overflow-hidden shadow-[4px_4px_0px_0px_var(--color-retro-500)] cursor-zoom-in group relative">
-    <div class="absolute inset-0 bg-retro-500/10 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-        <span class="bg-retro-500 text-retro-50 px-2 py-1 text-[10px] font-bold border-2 border-retro-50">VIEW_HD</span>
-    </div>
-    <img [src]="selectedProject().imageUrl" 
-         [alt]="selectedProject().title" 
-         class="w-full h-auto">
-</div>
+        <div (click)="openModal()"
+            class="mb-6 border-4 border-retro-500 overflow-hidden shadow-[4px_4px_0px_0px_var(--color-retro-500)] cursor-zoom-in group relative">
+            <div
+                class="absolute inset-0 bg-retro-500/10 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                <span
+                    class="bg-retro-500 text-retro-50 px-2 py-1 text-[10px] font-bold border-2 border-retro-50">AMPLIAR</span>
+            </div>
+            <img [src]="selectedProject().imageUrl" [alt]="selectedProject().title" class="w-full h-auto">
+        </div>
 
         <div class="flex-grow space-y-6">
             <div class="bg-retro-100 border-2 border-dashed border-retro-500 p-4">
@@ -117,26 +117,24 @@
 </div>
 
 
-<div *ngIf="isModalOpen()" 
-     class="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-12">
-    
+<div *ngIf="isModalOpen()" class="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-8">
+
     <div (click)="closeModal()" class="absolute inset-0 bg-retro-500/90 backdrop-blur-sm"></div>
 
-    <div class="relative z-10 max-w-6xl w-full flex flex-col items-center">
-        
-        <button (click)="closeModal()" 
-                class="self-end mb-4 bg-retro-400 text-retro-50 px-4 py-2 border-4 border-retro-500 shadow-[4px_4px_0px_0px_var(--color-retro-500)] font-bold hover:bg-retro-100 hover:text-retro-500 active:translate-y-1 active:shadow-none transition-all">
-            [ X ] CERRAR_VISOR
+    <div
+        class="relative z-10 border-8 border-retro-500 bg-retro-50 shadow-[12px_12px_0px_0px_rgba(0,0,0,0.5)] overflow-hidden max-h-[90vh] flex items-center justify-center">
+
+        <button (click)="closeModal()"
+            class="absolute top-2 right-2 z-20 bg-retro-400 text-retro-50 px-3 py-1 border-4 border-retro-500 shadow-[4px_4px_0px_0px_var(--color-retro-500)] font-bold hover:bg-retro-100 hover:text-retro-500 active:translate-y-1 active:shadow-none transition-all">
+            [ X ]
         </button>
 
-        <div class="border-8 border-retro-500 bg-retro-50 shadow-[12px_12px_0px_0px_rgba(0,0,0,0.5)] overflow-hidden max-h-[80vh] flex items-center justify-center">
-            <img [src]="selectedProject().imageUrl" 
-                 [alt]="selectedProject().title" 
-                 class="max-w-full max-h-full object-contain">
-        </div>
+        <img [src]="selectedProject().imageUrl" [alt]="selectedProject().title"
+            class="max-w-full max-h-[85vh] object-contain block">
 
-        <div class="mt-4 bg-retro-500 text-retro-50 px-6 py-2 border-2 border-retro-50 font-bold uppercase tracking-widest">
-            {{ selectedProject().title }} - Captura HD
+        <div
+            class="absolute bottom-2 left-2 bg-retro-500/80 text-retro-50 px-2 py-0.5 text-[8px] font-mono border border-retro-50 backdrop-blur-md">
+            {{ selectedProject().title }}
         </div>
     </div>
 </div>

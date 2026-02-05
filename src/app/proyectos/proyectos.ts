@@ -32,7 +32,7 @@ isModalOpen = signal(false);
       features: ['Interfaz interactiva y responsiva', 'Navegación fluida con Angular Router', 'Diseño basado en componentes standalone'],
       tech: ['Angular', 'Tailwind CSS', 'TypeScript', 'GitHub'],
       repositoryUrl: 'https://github.com/LoP-1/Portafolio-Card',
-      imageUrl: '/assets/images/projects/portafolio.png'
+      imageUrl: 'cv.png'
     },
     {
       id: 2,
