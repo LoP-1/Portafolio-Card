@@ -1,59 +1,52 @@
-# PortafolioCard
+# 🎮 Retro Portafolio Card
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.1.1.
+¡Bienvenido a mi portafolio! Desarrollado con mucho cariño para reflejar mi pasión por el desarrollo de software y la estética nostálgica retro/pixel-art. 
 
-## Development server
+Este proyecto es una carta de presentación interactiva, completamente responsiva y equipada con un sistema de temas dinámicos.
 
-To start a local development server, run:
+## ✨ Características Destacadas
 
-```bash
-ng serve
-```
+- **Estética Retro:** Diseño cuidadosamente trabajado con `Tailwind CSS`, utilizando sombras sólidas, bordes marcados, efectos "dither" y tipografía pixelada.
+- **Sistema multi-tema:** ¡Explora diferentes paletas de colores! Incluye un botón flotante (🎨) que permite rotar instantáneamente entre 3 increíbles temas:
+  - 🌌 *Midnight Retro* (Por defecto)
+  - 🟩 [*Rust Gold 8 Palette*](https://lospec.com/palette-list/rust-gold-8)
+  - 💻 [*Tema azul*]
+- **Totalmente Responsivo:** Interfaz adaptativa. Las pestañas laterales de escritorio se transforman elegantemente en un menú inferior/superior optimizado para controles táctiles en dispositivos móviles.
+- **Single Page Application:** Navegación fluida y descargas estáticas nativas impulsadas por la potencia de **Angular**.
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## 🚀 Tecnologías Utilizadas
 
-## Code scaffolding
+- **[Angular 17+](https://angular.dev/):** Framework principal (`standalone components` y enrutamiento inteligente).
+- **[Tailwind CSS](https://tailwindcss.com/):** Utilidades de diseño e inyección de temas a través de variables CSS nativas.
+- **[TypeScript](https://www.typescriptlang.org/):** Lógica del sistema web.
+- **[GitHub Pages](https://pages.github.com/):** Despliegue estático y alojamiento gratuito.
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## 🛠️ Instalación Local
 
-```bash
-ng generate component component-name
-```
+Si quieres clonar este repositorio para probarlo o usarlo de inspiración:
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+1. Clona el repositorio:
+   ```bash
+   git clone https://github.com/LoP-1/Portafolio-Card.git
+   ```
+2. Instala las dependencias:
+   ```bash
+   npm install
+   ```
+3. Inicia el servidor de desarrollo:
+   ```bash
+   ng serve
+   ```
+4. Abre `http://localhost:4200/` en tu moderno navegador. ¡El sistema recargará automáticamente tus cambios!
 
-```bash
-ng generate --help
-```
+## 📦 Producción y Despliegue
 
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
+Para compilar el proyecto y subirlo a GitHub Pages u otro servicio estático:
 
 ```bash
-ng e2e
+# Recuerda cambiar el base-href por el nombre exacto de tu repositorio si usas GH Pages
+ng build --base-href /Portafolio-Card/
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+Los artefactos optimizados se generarán dentro de la carpeta `dist/`.
 
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
