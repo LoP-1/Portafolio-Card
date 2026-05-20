@@ -1,36 +1,77 @@
-/* 1. Animación del Sprite Sheet para 5 frames */
-@keyframes slime-sprite {
-  from {
-    background-position: 0px 0px; 
-  }
-  to {
-    background-position: -320px 0px; 
-  }
+/* ==========================================================================
+   ANIMACIONES DEL MINIJUEGO SLIME (ARQUITECTURA DE DOS CAPAS)
+   ========================================================================== */
+
+/* Capa 1: Movimiento Horizontal (Aplica al PADRE) */
+@keyframes walk-across-screen {
+  0% { transform: translateX(-64px) scaleX(1); }
+  49% { transform: translateX(calc(100vw + 64px)) scaleX(1); }
+  50% { transform: translateX(calc(100vw + 64px)) scaleX(-1); } /* Volteo */
+  99% { transform: translateX(-64px) scaleX(-1); }
+  100% { transform: translateX(-64px) scaleX(1); }
 }
 
-@keyframes walk-across-screen {
+/* Capa 2: Animación de los 5 frames (Aplica al HIJO) */
+@keyframes slime-sprite {
+  from { background-position: 0px 0px; }
+  to { background-position: -320px 0px; }
+}
+
+/* Capa 2: Animación de Muerte (Aplica al HIJO) */
+@keyframes slime-squish-death {
   0% {
-    transform: translateX(-32px) scaleX(1);
+    transform: scaleY(1);
+    opacity: 1;
   }
-  49% {
-    transform: translateX(calc(100vw + 32px)) scaleX(1);
-  }
-  50% {
-    transform: translateX(calc(100vw + 32px)) scaleX(-1);
-  }
-  99% {
-    transform: translateX(-32px) scaleX(-1);
+  30% {
+    transform: scaleY(0.15);
+    opacity: 1;
   }
   100% {
-    transform: translateX(-32px) scaleX(1);
+    transform: scaleY(0.15);
+    opacity: 0;
   }
 }
-.animate-slime-walk {
-/* aumento de tamaño del slime */
-    background-size: auto 100%;
 
-    
-    animation: 
-        slime-sprite 0.5s steps(5) infinite, /* Ahora salta perfectamente entre tus 5 slimes */
-        walk-across-screen 20s linear infinite;
+/* ==========================================================================
+   CLASES DE CONTROL
+   ========================================================================== */
+
+/* CONTENEDOR PADRE: Solo maneja el traslado por la pantalla */
+.slime-wrapper {
+  position: absolute;
+  bottom: 8px; 
+  left: 0;
+  width: 64px;
+  height: 64px;
+  z-index: 30;
+  animation-name: walk-across-screen;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+/* Cuando el slime muere, congelamos al padre instantáneamente en su posición X */
+.slime-wrapper.parent-dead {
+  animation-play-state: paused;
+  pointer-events: none; /* Evita clics fantasmas */
+}
+
+/* ELEMENTO HIJO: Maneja los gráficos del sprite art y el comportamiento */
+.slime-visual {
+  width: 100%;
+  height: 100%;
+  background-image: url('/slime_animation.png');
+  background-position: left; /* <--- Corregido de background-left */
+  background-repeat: no-repeat;
+  background-size: auto 100%;
+  cursor: pointer;
+  user-select: none;     
+  animation-name: slime-sprite;
+  animation-timing-function: steps(5);
+  animation-iteration-count: infinite;
+}
+
+/* Cuando el slime muere, el hijo rompe el ciclo de caminar y se aplana rápido (0.3s) */
+.slime-visual.child-dead {
+  animation: slime-squish-death 0.3s ease-out forwards;
 }

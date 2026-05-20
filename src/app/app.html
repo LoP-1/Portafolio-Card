@@ -8,7 +8,6 @@
     </div>
   </main>
 
-  <!-- Navegación Mobile -->
   <nav class="block xl:hidden w-full mb-4 z-20">
     <ul class="flex flex-row gap-2 sm:gap-4 flex-wrap justify-center">
       <li>
@@ -36,7 +35,6 @@
     </ul>
   </nav>
 
-  <!-- Navegación Desktop -->
   <nav class="hidden xl:block ml-[-4px] self-start mt-8">
     <ul class="flex flex-col gap-5">
       <li>
@@ -64,8 +62,25 @@
     </ul>
   </nav>
 
-  <!-- Slime Animado -->
-  <div class="absolute bottom-2 left-0 w-16 h-16 z-30 animate-slime-walk bg-[url('/slime_animation.png')] bg-center bg-no-repeat pointer-events-none select-none">
-  </div>
+  <button 
+    (click)="spawnSlime()" 
+    class="fixed bottom-4 right-4 z-50 border-[3px] border-retro-500 bg-retro-300 px-4 py-2 font-serif text-humo text-sm rounded-sm shadow-[4px_4px_0px_0px_var(--color-retro-500)] hover:bg-retro-100 hover:text-retro-500 hover:shadow-none hover:translate-x-[4px] hover:translate-y-[4px] transition-all duration-200 active:scale-95 select-none">
+    + Invocar Slime 🟢
+  </button>
 
+ @for (slime of activeSlimes(); track slime.id) {
+    <div 
+      [style.animation-duration]="slime.speed + 's'"
+      [ngClass]="{ 'parent-dead': slime.state === 'dead' }"
+      class="slime-wrapper">
+      
+      <div 
+        (click)="squishSlime(slime.id)"
+        [style.animation-duration]="'0.5s'"
+        [ngClass]="{ 'child-dead': slime.state === 'dead' }"
+        class="slime-visual">
+      </div>
+
+    </div>
+  }
 </div>
