@@ -1,0 +1,36 @@
+/* 1. Animación del Sprite Sheet para 5 frames */
+@keyframes slime-sprite {
+  from {
+    background-position: 0px 0px; 
+  }
+  to {
+    background-position: -320px 0px; 
+  }
+}
+
+@keyframes walk-across-screen {
+  0% {
+    transform: translateX(-32px) scaleX(1);
+  }
+  49% {
+    transform: translateX(calc(100vw + 32px)) scaleX(1);
+  }
+  50% {
+    transform: translateX(calc(100vw + 32px)) scaleX(-1);
+  }
+  99% {
+    transform: translateX(-32px) scaleX(-1);
+  }
+  100% {
+    transform: translateX(-32px) scaleX(1);
+  }
+}
+.animate-slime-walk {
+/* aumento de tamaño del slime */
+    background-size: auto 100%;
+
+    
+    animation: 
+        slime-sprite 0.5s steps(5) infinite, /* Ahora salta perfectamente entre tus 5 slimes */
+        walk-across-screen 20s linear infinite;
+}

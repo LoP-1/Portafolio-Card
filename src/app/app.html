@@ -1,23 +1,14 @@
 <div class="flex flex-col-reverse xl:flex-row min-h-screen w-full items-center xl:items-start justify-center bg-retro-400 p-2 sm:p-4 md:p-8 font-serif overflow-x-hidden relative">
 
-  <button (click)="toggleTheme()" 
-          class="fixed bottom-4 right-4 md:top-4 md:bottom-auto md:right-4 z-[100] border-4 border-retro-500 bg-retro-300 text-retro-500 hover:bg-retro-100 hover:-translate-y-1 transition-transform p-3 shadow-[4px_4px_0px_0px_var(--color-retro-500)] active:translate-y-0 active:shadow-none font-bold text-xl cursor-pointer"
-          title="Cambiar Paleta (Tema)">
-    🎨
-  </button>
-
   <main class="z-10 w-full max-w-5xl border-4 border-retro-500 shadow-[8px_8px_0px_0px_var(--color-retro-500)] ring-4 ring-retro-500 overflow-hidden">
-    
     <div class="flex flex-col font-serif text-retro-500 gap-4 bg-gradient-to-l from-retro-300 to-retro-400 p-10 min-h-full relative bg-dither overflow-hidden">
-    
-    <div class="relative z-10">
-        <router-outlet></router-outlet> 
+      <div class="relative z-10">
+          <router-outlet></router-outlet> 
+      </div>
     </div>
-
-</div>
-
   </main>
 
+  <!-- Navegación Mobile -->
   <nav class="block xl:hidden w-full mb-4 z-20">
     <ul class="flex flex-row gap-2 sm:gap-4 flex-wrap justify-center">
       <li>
@@ -45,26 +36,24 @@
     </ul>
   </nav>
 
+  <!-- Navegación Desktop -->
   <nav class="hidden xl:block ml-[-4px] self-start mt-8">
     <ul class="flex flex-col gap-5">
-      
       <li>
-      <a routerLink="/" 
-         routerLinkActive="!bg-retro-100 !text-retro-500 pl-10 translate-x-[4px] translate-y-[4px] !shadow-none"
-         [routerLinkActiveOptions]="{ exact: true }"
-         class="block border-[3px] border-l-0 border-retro-500 bg-retro-400 px-6 py-3 text-humo transition-all duration-200 rounded-r-sm shadow-[4px_4px_0px_0px_var(--color-retro-500)] hover:bg-retro-100 hover:text-retro-500 hover:shadow-none hover:translate-x-[4px] hover:translate-y-[4px]">
-         Información
-      </a>
-    </li>
-
+        <a routerLink="/" 
+           routerLinkActive="!bg-retro-100 !text-retro-500 pl-10 translate-x-[4px] translate-y-[4px] !shadow-none"
+           [routerLinkActiveOptions]="{ exact: true }"
+           class="block border-[3px] border-l-0 border-retro-500 bg-retro-400 px-6 py-3 text-humo transition-all duration-200 rounded-r-sm shadow-[4px_4px_0px_0px_var(--color-retro-500)] hover:bg-retro-100 hover:text-retro-500 hover:shadow-none hover:translate-x-[4px] hover:translate-y-[4px]">
+           Información
+        </a>
+      </li>
       <li>
-      <a routerLink="/experiencia" 
-         routerLinkActive="!bg-retro-100 !text-retro-500 pl-10 translate-x-[4px] translate-y-[4px] !shadow-none"
-         class="block border-[3px] border-l-0 border-retro-500 bg-retro-300 px-6 py-3 text-humo transition-all duration-200 rounded-r-sm shadow-[4px_4px_0px_0px_var(--color-retro-500)] hover:bg-retro-100 hover:text-retro-500 hover:shadow-none hover:translate-x-[4px] hover:translate-y-[4px]">
-         Experiencia
-      </a>
-    </li>
-
+        <a routerLink="/experiencia" 
+           routerLinkActive="!bg-retro-100 !text-retro-500 pl-10 translate-x-[4px] translate-y-[4px] !shadow-none"
+           class="block border-[3px] border-l-0 border-retro-500 bg-retro-300 px-6 py-3 text-humo transition-all duration-200 rounded-r-sm shadow-[4px_4px_0px_0px_var(--color-retro-500)] hover:bg-retro-100 hover:text-retro-500 hover:shadow-none hover:translate-x-[4px] hover:translate-y-[4px]">
+           Experiencia
+        </a>
+      </li>
       <li>
         <a routerLink="/proyectos" 
            routerLinkActive="!bg-retro-100 !text-retro-500 pl-10 translate-x-[4px] translate-y-[4px] !shadow-none"
@@ -74,4 +63,9 @@
       </li>
     </ul>
   </nav>
+
+  <!-- Slime Animado -->
+  <div class="absolute bottom-2 left-0 w-16 h-16 z-30 animate-slime-walk bg-[url('/slime_animation.png')] bg-center bg-no-repeat pointer-events-none select-none">
+  </div>
+
 </div>

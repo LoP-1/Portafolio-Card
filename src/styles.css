@@ -22,33 +22,10 @@
   --font-serif: "Minecraft", ui-serif, Georgia, serif;
 }
 
-body.theme-gameboy {
-  --color-retro-50: #f6cd26;
-  --color-retro-100: #bb7f57;
-  --color-retro-200: #725956;
-  --color-retro-300: #965d1f;
-  --color-retro-400: #393939;
-  --color-retro-500: #202020;
-  --color-humo: #f5f5f5;
-  --color-tinta: #202020;
-}
-
-body.theme-hacker {
-  --color-retro-500: #1a1b26;
-  --color-retro-400: #2e324b;
-  --color-retro-300: #414868;
-  --color-retro-200: #7aa2f7;
-  --color-retro-100: #bb9af7;
-  --color-retro-50: #7dcfff;
-  --color-humo: #c0caf5;
-  --color-tinta: #1a1b26;
-}
-
 @layer base {
   body {
     background-color: var(--color-retro-50);
     color: var(--color-tinta);
-    /* Usamos la variable que definimos arriba */
     font-family: var(--font-serif);
 
     image-rendering: pixelated;
@@ -60,7 +37,6 @@ body.theme-hacker {
     text-rendering: optimizeSpeed;
   }
 }
-
 
 @layer utilities {
   .bg-dither {
