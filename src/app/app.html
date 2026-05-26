@@ -62,12 +62,6 @@
     </ul>
   </nav>
 
-  <button 
-    (click)="spawnSlime()" 
-    class="fixed bottom-4 right-4 z-50 border-[3px] border-retro-500 bg-retro-300 px-4 py-2 font-serif text-humo text-sm rounded-sm shadow-[4px_4px_0px_0px_var(--color-retro-500)] hover:bg-retro-100 hover:text-retro-500 hover:shadow-none hover:translate-x-[4px] hover:translate-y-[4px] transition-all duration-200 active:scale-95 select-none">
-    + Invocar Slime 🟢
-  </button>
-
  @for (slime of activeSlimes(); track slime.id) {
     <div 
       [style.animation-duration]="slime.speed + 's'"
