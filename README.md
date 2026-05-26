@@ -1,16 +1,14 @@
 # 🎮 Retro Portafolio Card
 
-¡Bienvenido a mi portafolio! Desarrollado con mucho cariño para reflejar mi pasión por el desarrollo de software y la estética nostálgica retro/pixel-art. 
+¡Bienvenido a mi portafolio!
 
-Este proyecto es una carta de presentación interactiva, completamente responsiva y equipada con un sistema de temas dinámicos.
+Puedes ver mis proyectos e informacion, ademas de descargar mi curriculum :D
+**[Pagina en vivo](https://lop-1.github.io/Portafolio-Card/ ):**
 
 ## ✨ Características Destacadas
 
 - **Estética Retro:** Diseño cuidadosamente trabajado con `Tailwind CSS`, utilizando sombras sólidas, bordes marcados, efectos "dither" y tipografía pixelada.
-- **Sistema multi-tema:** ¡Explora diferentes paletas de colores! Incluye un botón flotante (🎨) que permite rotar instantáneamente entre 3 increíbles temas:
-  - 🌌 *Midnight Retro* (Por defecto)
-  - 🟩 [*Rust Gold 8 Palette*](https://lospec.com/palette-list/rust-gold-8)
-  - 💻 [*Tema azul*]
+- **Spawn de Slimes:** Generacion de slimes en la base de la web con TypeScript
 - **Totalmente Responsivo:** Interfaz adaptativa. Las pestañas laterales de escritorio se transforman elegantemente en un menú inferior/superior optimizado para controles táctiles en dispositivos móviles.
 - **Single Page Application:** Navegación fluida y descargas estáticas nativas impulsadas por la potencia de **Angular**.
 
