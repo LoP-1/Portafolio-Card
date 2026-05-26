@@ -71,6 +71,7 @@
       <div 
         (click)="squishSlime(slime.id)"
         [style.animation-duration]="'0.5s'"
+        [style.background-image]="'url(slime_animation.png)'"
         [ngClass]="{ 'child-dead': slime.state === 'dead' }"
         class="slime-visual">
       </div>
