@@ -9,7 +9,7 @@ import { CommonModule } from '@angular/common';
 })
 export class Proyectos {
 
-isModalOpen = signal(false); 
+  isModalOpen = signal(false); 
 
   openModal() {
     this.isModalOpen.set(true);
@@ -19,12 +19,22 @@ isModalOpen = signal(false);
     this.isModalOpen.set(false);
   }
 
-
   sortOrder = signal<'asc' | 'desc'>('asc');
 
   projects = [
     {
       id: 1,
+      title: 'Review Magic',
+      type: 'Fullstack',
+      mainTechs: ["python", "nextjs"],
+      description: 'Plataforma SaaS de automatización mediante orquestación de agentes de IA bajo protocolo MCP, con persistencia y pasarela de pagos integrada.',
+      features: ['Orquestación de flujos autónomos en tiempo real con protocolo MCP', 'Autenticación con Google e integración de pagos con Lemon Squeezy', 'Arquitectura escalable con persistencia de datos en Supabase'],
+      tech: ['Python', 'FastAPI', 'Next.js', 'TypeScript', 'Supabase', 'Lemon Squeezy'],
+      repositoryUrl: 'https://github.com/LoP-1/Review-Magic',
+      imageUrl: 'reviewmagic.jpg'
+    },
+    {
+      id: 2,
       title: 'Portafolio :D',
       type: 'Frontend',
       mainTechs: ["angular"],
@@ -35,7 +45,7 @@ isModalOpen = signal(false);
       imageUrl: 'cv.png'
     },
     {
-      id: 2,
+      id: 3,
       title: 'Gestor de archivos simple',
       type: 'Fullstack',
       mainTechs: ["javascript", "linux"],
@@ -46,7 +56,7 @@ isModalOpen = signal(false);
       imageUrl: 'js.png'
     },
     {
-      id: 3,
+      id: 4,
       title: 'Sistema Boletería DREJ',
       type: 'Fullstack',
       mainTechs: ["spring", "angular"],
@@ -57,7 +67,7 @@ isModalOpen = signal(false);
       imageUrl: 'boletas.png'
     },
     {
-      id: 4,
+      id: 5,
       title: 'Consulta de Boletas DREJ',
       type: 'Fullstack',
       mainTechs: ["laravel", "angular"],
@@ -68,7 +78,7 @@ isModalOpen = signal(false);
       imageUrl: 'boletas-cesantes.png'
     },
     {
-      id: 5,
+      id: 6,
       title: 'API Botica Said',
       type: 'Backend',
       mainTechs: ["spring", "linux"],
@@ -79,7 +89,7 @@ isModalOpen = signal(false);
       imageUrl: 'Said.png'
     },
     {
-      id: 6,
+      id: 7,
       title: 'Gestión de Actas DREJ',
       type: 'Fullstack',
       mainTechs: ["laravel", "angular"],
@@ -90,7 +100,7 @@ isModalOpen = signal(false);
       imageUrl: 'foto.png'
     },
     {
-      id: 7,
+      id: 8,
       title: 'CerebrexNode TakeControl',
       type: 'Modding',
       mainTechs: ["csharp"],
@@ -101,7 +111,7 @@ isModalOpen = signal(false);
       imageUrl: 'mod.png'
     },
     {
-      id: 8,
+      id: 9,
       title: 'SafeAlert API',
       type: 'Backend',
       mainTechs: ["spring"],
@@ -112,7 +122,7 @@ isModalOpen = signal(false);
       imageUrl: 'Safe-Alert.png'
     },
     {
-      id: 9,
+      id: 10,
       title: 'Pizza API WEB',
       type: 'Backend',
       mainTechs: ["spring"],
@@ -123,7 +133,8 @@ isModalOpen = signal(false);
       imageUrl: 'Index.png'
     }
   ];
-sortedProjects = computed(() => {
+
+  sortedProjects = computed(() => {
     const list = [...this.projects];
     return list.sort((a, b) => {
       return this.sortOrder() === 'asc' ? a.id - b.id : b.id - a.id;
