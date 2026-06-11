@@ -24,13 +24,29 @@ export class Proyectos {
   projects = [
     {
       id: 1,
+      title: 'Redactor por secciones',
+      type: 'Fullstack',
+      mainTechs: ["python", "nextjs"],
+      description: 'Proxy local seguro y stateless que orquesta agentes de IA con límites de contexto personalizados, inyección de directivas ejecutivas y streaming de datos en tiempo real.',
+      features: [
+        'Arquitectura stateless que procesa credenciales directamente en memoria (Zero Disk Storage)',
+        'Streaming asíncrono nativo utilizando el SDK unificado google-genai y FastAPI',
+        'Aislamiento de concurrencia mediante instanciación de clientes únicos por petición',
+        'Editor enriquecido modular por secciones que consume código HTML semántico directamente de la IA'
+      ],
+      tech: ['Python', 'FastAPI', 'Next.js', 'TypeScript', 'Google GenAI SDK', 'Tailwind CSS'],
+      repositoryUrl: 'https://github.com/LoP-1/IA-Redactor',
+      imageUrl: 'redactor.png'
+    },
+    {
+      id: 1,
       title: 'Review Magic',
       type: 'Fullstack',
       mainTechs: ["python", "nextjs"],
       description: 'Plataforma SaaS de automatización mediante orquestación de agentes de IA bajo protocolo MCP, con persistencia y pasarela de pagos integrada.',
       features: ['Orquestación de flujos autónomos en tiempo real con protocolo MCP', 'Autenticación con Google e integración de pagos con Lemon Squeezy', 'Arquitectura escalable con persistencia de datos en Supabase'],
       tech: ['Python', 'FastAPI', 'Next.js', 'TypeScript', 'Supabase', 'Lemon Squeezy'],
-      repositoryUrl: 'https://github.com/LoP-1/Review-Magic',
+      repositoryUrl: 'https://github.com/LoP-1/ReviewMagic',
       imageUrl: 'reviewmagic.jpg'
     },
     {
