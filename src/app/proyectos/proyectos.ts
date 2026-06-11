@@ -39,7 +39,7 @@ export class Proyectos {
       imageUrl: 'redactor.png'
     },
     {
-      id: 1,
+      id: 2,
       title: 'Review Magic',
       type: 'Fullstack',
       mainTechs: ["python", "nextjs"],
@@ -50,7 +50,7 @@ export class Proyectos {
       imageUrl: 'reviewmagic.jpg'
     },
     {
-      id: 2,
+      id: 3,
       title: 'Portafolio :D',
       type: 'Frontend',
       mainTechs: ["angular"],
@@ -61,7 +61,7 @@ export class Proyectos {
       imageUrl: 'cv.png'
     },
     {
-      id: 3,
+      id: 4,
       title: 'Gestor de archivos simple',
       type: 'Fullstack',
       mainTechs: ["javascript", "linux"],
@@ -72,7 +72,7 @@ export class Proyectos {
       imageUrl: 'js.png'
     },
     {
-      id: 4,
+      id: 5,
       title: 'Sistema Boletería DREJ',
       type: 'Fullstack',
       mainTechs: ["spring", "angular"],
@@ -83,7 +83,7 @@ export class Proyectos {
       imageUrl: 'boletas.png'
     },
     {
-      id: 5,
+      id: 6,
       title: 'Consulta de Boletas DREJ',
       type: 'Fullstack',
       mainTechs: ["laravel", "angular"],
@@ -94,7 +94,7 @@ export class Proyectos {
       imageUrl: 'boletas-cesantes.png'
     },
     {
-      id: 6,
+      id: 7,
       title: 'API Botica Said',
       type: 'Backend',
       mainTechs: ["spring", "linux"],
@@ -105,7 +105,7 @@ export class Proyectos {
       imageUrl: 'Said.png'
     },
     {
-      id: 7,
+      id: 8,
       title: 'Gestión de Actas DREJ',
       type: 'Fullstack',
       mainTechs: ["laravel", "angular"],
@@ -116,7 +116,7 @@ export class Proyectos {
       imageUrl: 'foto.png'
     },
     {
-      id: 8,
+      id: 9,
       title: 'CerebrexNode TakeControl',
       type: 'Modding',
       mainTechs: ["csharp"],
@@ -127,7 +127,7 @@ export class Proyectos {
       imageUrl: 'mod.png'
     },
     {
-      id: 9,
+      id: 10,
       title: 'SafeAlert API',
       type: 'Backend',
       mainTechs: ["spring"],
@@ -138,7 +138,7 @@ export class Proyectos {
       imageUrl: 'Safe-Alert.png'
     },
     {
-      id: 10,
+      id: 11,
       title: 'Pizza API WEB',
       type: 'Backend',
       mainTechs: ["spring"],
